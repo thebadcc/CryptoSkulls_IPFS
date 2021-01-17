@@ -1,1 +1,1 @@
-# CryptoSkulls_IPFS
+# CryptoSkulls IPFS Image Contract
