@@ -1,57 +1,81 @@
 pragma solidity 0.4.24;
 
+contract CryptoSkulls {
+    
+    function supportsInterface(bytes4) public pure returns (bool) {}
+    function name() public pure returns (string) {}
+    function getApproved(uint) public pure returns (uint) {}
+    function totalSupply() public pure returns (uint) {}
+    function tokenOfOwnerByIndex(address, uint) public pure returns (uint) {}
+    function tokenByIndex(uint) public pure returns (uint) {}
+    function imageHash() public pure returns (string) {}
+    function ownerOf(uint) public pure returns (address) {}
+    function balanceOf(address) public pure returns (uint) {}
+    function owner() public pure returns (address) {}
+    function isOwner() public pure returns (bool) {}
+    function symbol() public pure returns (string) {}
+    function isApprovedForAll(address, address) public pure returns (bool) {}
+
+}
+
 contract CryptoSkullsAPI {
-    modifier onlyOwner {
-        require(msg.sender == owner);
+    modifier onlyAuthor {
+        require(msg.sender == author);
         _;
     }
     
-    address public owner;
+    CryptoSkulls pullContract;
+    
+    address public author;
     address public tokenAddress;
-    string public name;
-    string public symbol;
     string public imageHash;
     string public imageHashURI;
     string public tokenURI;
-    uint public totalSupply;
-
-
+   
     constructor() public {
-        owner = msg.sender;
+        author = msg.sender;
         tokenAddress = 0x9af756e7be065dca83674ec17f3703579a544da1;
-        name = 'CryptoSkulls';
-        symbol = 'CryptoSkulls';
-        imageHash = 'ee45d31baca263402d1ed0a6f3262ced177420365fe10f3dcf069b32b105fef7';
         imageHashURI = '';
         tokenURI = '';
-         emit _UpdateContract(tokenAddress, name, symbol, imageHash, tokenURI, totalSupply);
+ 
+        emit _UpdateContract(tokenAddress, imageHashURI, tokenURI);
+    }
+          
+    
+    function killContract() public onlyAuthor { 
+        selfdestruct(author); 
     }
     
-
-    function killContract() public onlyOwner { 
-        selfdestruct(owner); 
-    }
-    
-    function transferOwnership(address _owner) public onlyOwner { 
-        owner = _owner; 
+    function transferOwnership(address _author) public onlyAuthor { 
+        author = _author; 
         
-        emit _transferOwnership(msg.sender, _owner);
+        emit _transferOwnership(msg.sender, _author);
     }
     
     
-    function updateContract(address _tokenAddress, string _name, string _symbol, string _imageHash, string _imageHashURI, string _tokenURI, uint _totalSupply) public onlyOwner { 
+    function updateContract(address _tokenAddress,  string _imageHashURI, string _tokenURI) public onlyAuthor { 
         tokenAddress = _tokenAddress;
-        name = _name;
-        symbol = _symbol;
-        imageHash = _imageHash;
         imageHashURI = _imageHashURI;
         tokenURI = _tokenURI;
-        totalSupply = _totalSupply;
         
-        emit _UpdateContract(_tokenAddress, _name, _symbol, _imageHash, _tokenURI, _totalSupply);
+        emit _UpdateContract(_tokenAddress, _imageHashURI, _tokenURI);
     }
     
-event   _UpdateContract(address, string, string, string, string, uint);
+    
+    function setPull(address _address) onlyAuthor {
+        pullContract = CryptoSkulls(_address);           
+    }    
+          
+      
+    function owner() constant public returns (address) {
+        return pullContract.owner();
+    }
+    
+    function getApproved(uint _val) constant public returns (uint) {
+        return pullContract.getApproved(_val);
+    }
+    
+event   _UpdateContract(address, string, string);
 event   _transferOwnership(address, address);
     
 }
