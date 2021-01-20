@@ -35,9 +35,9 @@ contract CryptoSkullsAPI {
     constructor() public {
         author = msg.sender;
         tokenAddress = 0x9af756e7be065dca83674ec17f3703579a544da1;
-        imageHashURI = '';
-        tokenURI = '';
- 
+        imageHashURI = 'https://ipfs.io/ipfs/QmXVHusfnw2vK3VMQinasuQXpcwUHEBauDwnWGrCoJ6dgy';
+        tokenURI = 'https://ipfs.io/ipfs/QmbatfUPcfW7ws15uATv2buLvpPYFibDJQbsD7oMmUnXcC';
+        pullContract = CryptoSkulls(tokenAddress);   
         emit _UpdateContract(tokenAddress, imageHashURI, tokenURI);
     }
           
@@ -57,25 +57,65 @@ contract CryptoSkullsAPI {
         tokenAddress = _tokenAddress;
         imageHashURI = _imageHashURI;
         tokenURI = _tokenURI;
-        
+        pullContract = CryptoSkulls(_tokenAddress);
         emit _UpdateContract(_tokenAddress, _imageHashURI, _tokenURI);
     }
     
-    
-    function setPull(address _address) onlyAuthor {
-        pullContract = CryptoSkulls(_address);           
-    }    
-          
       
-    function owner() constant public returns (address) {
+    function supportsInterface(bytes4 interfaceId ) constant public returns (bool) {
+        return pullContract.supportsInterface(interfaceId);
+    }
+    
+    function name() constant public returns (string) {
+        return pullContract.name();
+    }
+    
+    function getApproved(uint tokenId) constant public returns (uint) {
+        return pullContract.getApproved(tokenId);
+    }
+    
+    function totalSupply() constant public returns (uint) {
+        return pullContract.totalSupply();
+    }
+    
+    function tokenOfOwnerByIndex(address owner, uint index) constant public returns (uint) {
+        return pullContract.tokenOfOwnerByIndex(owner, index);
+    }
+    
+    function tokenByIndex(uint _uint) constant public returns (uint) {
+        return pullContract.getApproved(_uint);
+    }
+    
+    function imageHash() constant public returns (string) {
+        return pullContract.imageHash();
+    }
+    
+    function ownerOf(uint _uint) constant public returns (address) {
+        return pullContract.ownerOf(_uint);
+    }
+    
+    function balanceOf(address _address) constant public returns (uint) {
+        return pullContract.balanceOf(_address);
+    }
+    
+    function owner(address _address) constant public returns (address) {
         return pullContract.owner();
     }
     
-    function getApproved(uint _val) constant public returns (uint) {
-        return pullContract.getApproved(_val);
+    function isOwner() constant public returns (bool) {
+        return pullContract.isOwner();
     }
     
-event   _UpdateContract(address, string, string);
-event   _transferOwnership(address, address);
+    function symbol() constant public returns (string) {
+        return pullContract.symbol();
+    }
+    
+    function isApprovedForAll(address _address, address _address2 ) constant public returns (bool) {
+        return pullContract.isApprovedForAll(_address, _address2);
+    }
+    
+    
+event   _UpdateContract(address newTokenAddress, string newImageHashURI, string newTokenURI);
+event   _transferOwnership(address oldAuthor, address newAuthor);
     
 }
