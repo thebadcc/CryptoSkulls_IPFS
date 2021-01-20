@@ -2,4 +2,4 @@
 
 More information to come. 
 
-[See Medium article, available here.](www.medium.com)
+[See Medium.](www.medium.com)
