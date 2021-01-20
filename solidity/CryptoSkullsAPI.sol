@@ -34,9 +34,9 @@ contract CryptoSkullsAPI {
    
     constructor() public {
         author = msg.sender;
-        tokenAddress = 0x9af756e7be065dca83674ec17f3703579a544da1;
+        tokenAddress = 0xc1Caf0C19A8AC28c41Fe59bA6c754e4b9bd54dE9;
         imageHashURI = 'https://ipfs.io/ipfs/QmXVHusfnw2vK3VMQinasuQXpcwUHEBauDwnWGrCoJ6dgy';
-        tokenURI = 'https://ipfs.io/ipfs/QmbatfUPcfW7ws15uATv2buLvpPYFibDJQbsD7oMmUnXcC';
+        tokenURI = 'https://gateway.ethswarm.org/files/cd8633ae1ee6c310366e72154f22edfca28ab87bbda7a2282d33cf7e2426c585';
         pullContract = CryptoSkulls(tokenAddress);   
         emit _UpdateContract(tokenAddress, imageHashURI, tokenURI);
     }
@@ -82,23 +82,23 @@ contract CryptoSkullsAPI {
         return pullContract.tokenOfOwnerByIndex(owner, index);
     }
     
-    function tokenByIndex(uint _uint) constant public returns (uint) {
-        return pullContract.getApproved(_uint);
+    function tokenByIndex(uint index) constant public returns (uint) {
+        return pullContract.getApproved(index);
     }
     
     function imageHash() constant public returns (string) {
         return pullContract.imageHash();
     }
     
-    function ownerOf(uint _uint) constant public returns (address) {
-        return pullContract.ownerOf(_uint);
+    function ownerOf(uint tokenId) constant public returns (address) {
+        return pullContract.ownerOf(tokenId);
     }
     
-    function balanceOf(address _address) constant public returns (uint) {
-        return pullContract.balanceOf(_address);
+    function balanceOf(address owner) constant public returns (uint) {
+        return pullContract.balanceOf(owner);
     }
     
-    function owner(address _address) constant public returns (address) {
+    function owner() constant public returns (address) {
         return pullContract.owner();
     }
     
@@ -110,8 +110,8 @@ contract CryptoSkullsAPI {
         return pullContract.symbol();
     }
     
-    function isApprovedForAll(address _address, address _address2 ) constant public returns (bool) {
-        return pullContract.isApprovedForAll(_address, _address2);
+    function isApprovedForAll(address owner, address operator) constant public returns (bool) {
+        return pullContract.isApprovedForAll(owner, operator);
     }
     
     
