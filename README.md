@@ -1,4 +1,4 @@
-# CryptoSkulls IPFS v0.01
+# CryptoSkulls IPFS API v0.01
 
 More information to come. 
 
