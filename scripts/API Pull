@@ -1,0 +1,11 @@
+
+var root = 'https://gateway.ethswarm.org/files/58733a5d7984c71decfe161ffe486eda08864bea46afa0e6303d7d247d78ee99';
+
+$.ajax({
+  url: root,
+  method: 'GET'
+}).then(function(data) {
+  console.log(data);
+  var y = data.CryptoSkulls[4]
+  document.getElementById("demo").innerHTML = y;
+});
