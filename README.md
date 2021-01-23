@@ -6,7 +6,8 @@ https://raw.githubusercontent.com/thebadcc/CryptoSkulls_IPFS/main/API/token
   
 Image Hash File: https://ipfs.io/ipfs/QmXVHusfnw2vK3VMQinasuQXpcwUHEBauDwnWGrCoJ6dgy
   
-JQuery Call Example:
+# JQuery Call 
+
 var root = 'https://raw.githubusercontent.com/thebadcc/CryptoSkulls_IPFS/main/API/0';
 $.ajax({
   url: root,
