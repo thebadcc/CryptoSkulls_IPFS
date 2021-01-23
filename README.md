@@ -3,11 +3,11 @@
 CryptoSkulls IPFS API: https://raw.githubusercontent.com/thebadcc/CryptoSkulls_IPFS/main/API/token
 Image Hash File: https://ipfs.io/ipfs/QmXVHusfnw2vK3VMQinasuQXpcwUHEBauDwnWGrCoJ6dgy
 
-Eventually, we'd like to recreate this API within  a distributed data feed (likely API3 as previously mentioned) to preserve the NFT's data and distributed storage.
+Provided in this repository is an update CryptoSkulls NFT API, whereby the image and video locations reference files located on The Inter-Planetary File System ("IPFS"). IPFS is a protocol and peer-to-peer network developed by Juan Benet and Protocol Labs for storing and sharing data in a distributed file system. Eventually, we'd like to recreate this API within a distributed data feed (likely API3 ) to preserve the NFT's data and distributed storage and will consider alternative file storage systems (Swarm, Storj, File Coin, Sia, etc.) as those projects evolve.
+
 [Read more on Medium.](www.medium.com)
   
-# JQuery Call
-
+# JQuery
 ```
 var root = 'https://raw.githubusercontent.com/thebadcc/CryptoSkulls_IPFS/main/API/0';
 $.ajax({
@@ -19,9 +19,9 @@ $.ajax({
 });
 ```
 
-# JavaScript Call
+# JavaScript
 ```
-fetch('https://raw.githubusercontent.com/thebadcc/CryptoSkulls_IPFS/main/API/19')
+fetch('https://raw.githubusercontent.com/thebadcc/CryptoSkulls_IPFS/main/API/0')
  .then(response => {
  if (response.ok) {
  response.json().then(data => {
