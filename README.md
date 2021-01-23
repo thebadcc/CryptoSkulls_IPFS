@@ -1,12 +1,15 @@
 # CryptoSkulls IPFS API v0.01
 
-More information to come. 
 
 [See Medium.](www.medium.com)
 
+Image Hash File: 
 
-// from
-// http://jsonplaceholder.typicode.com/
+Full API List:
+
+API URL: 
+
+Calling API via JQuery
 
 var root = 'http://jsonplaceholder.typicode.com';
 
