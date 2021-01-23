@@ -3,11 +3,9 @@
 
 [See Medium.](www.medium.com)
 
-Image Hash File: 
+Image Hash File: https://ipfs.io/ipfs/QmXVHusfnw2vK3VMQinasuQXpcwUHEBauDwnWGrCoJ6dgy
 
-Full API List:
-
-API URL: 
+API URL: https://raw.githubusercontent.com/thebadcc/CryptoSkulls_IPFS/main/API/token
 
 Calling API via JQuery
 
