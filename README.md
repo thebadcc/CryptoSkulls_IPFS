@@ -24,14 +24,14 @@ $.ajax({
 
 # JavaScript
 ```
-fetch('https://raw.githubusercontent.com/thebadcc/CryptoSkulls_IPFS/main/API/0')
+fetch('https://raw.githubusercontent.com/thebadcc/CryptoSkulls_IPFS/main/API/19')
  .then(response => {
- if (response.ok) {
- response.json().then(data => {
- result = JSON.stringify(data);
- console.log(result)
- });
- } else ;
+   if (response.ok) {
+     response.json().then(data => {
+       result = JSON.stringify(data);
+       console.log(result);
+     });
+    } else ;
  })
 ```
 
