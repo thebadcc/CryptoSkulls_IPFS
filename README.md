@@ -1,6 +1,6 @@
 ![logo](images/cryptoskulls_banner.png?raw=true)
 # CryptoSkulls IPFS API v0.01
-This repository contains an updated CryptoSkulls NFT API, where the respective images and videos may be found on the Inter-Planetary File System ("IPFS"). IPFS is a protocol and peer-to-peer network developed by Juan Benet and Protocol Labs for storing and sharing data in a distributed file system. Eventually, we'd like to recreate this API within a distributed data feed (likely API3) to preserve the CryptoSkulls NFTs' data and will also consider alternative file storage systems (Swarm, Storj, File Coin, Sia, etc.) as those projects evolve.
+This repository contains an updated CryptoSkulls NFT API, where the respective images and videos may be found on the Inter-Planetary File System ("IPFS"). IPFS is a protocol and peer-to-peer network developed by Juan Benet and Protocol Labs for storing and sharing data in a distributed file system. Eventually, we'd like to recreate this API within a distributed data feed (likely API3) to preserve the CryptoSkulls NFTs' data and availability.
 
 [Read more on Medium.](www.medium.com)
 
