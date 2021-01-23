@@ -8,6 +8,7 @@ Eventually, we'd like to recreate this API within  a distributed data feed (like
   
 # JQuery Call
 
+```
 var root = 'https://raw.githubusercontent.com/thebadcc/CryptoSkulls_IPFS/main/API/0';
 $.ajax({
   url: root,
@@ -16,9 +17,10 @@ $.ajax({
 }).then(function(data) {
   console.log(data);
 });
+```
 
 # JavaScript Call
-
+```
 fetch('https://raw.githubusercontent.com/thebadcc/CryptoSkulls_IPFS/main/API/19')
  .then(response => {
  if (response.ok) {
@@ -28,5 +30,6 @@ fetch('https://raw.githubusercontent.com/thebadcc/CryptoSkulls_IPFS/main/API/19'
  });
  } else ;
  })
+```
 
 
